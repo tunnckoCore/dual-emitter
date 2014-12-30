@@ -1,7 +1,7 @@
 {
   "name": "dual-emitter",
   "version": "0.0.2",
-  "description": "Cross-browser (and IE8) + node.js event emitter. Invoke custom or DOM event. Micro library in 35 lines without jQuery!!!",
+  "description": "Cross-browser (and IE8) + node.js event emitter. Invoke custom or DOM event. Micro library in 35 lines without jQuery!!!  Useful for two-way data-binding!!",
   "scripts": {
     "lint": "jshint index.js && jscs index.js --reporter inline",
     "test": "mocha",
@@ -42,6 +42,14 @@
     "mozilla",
     "node",
     "nodejs",
+    "spa",
+    "databinding",
+    "binding",
+    "two-way databinding",
+    "two-way",
+    "two way",
+    "data binding",
+    "bi-directional",
     "without",
     "without jquery"
   ],

@@ -7,8 +7,9 @@
 
 'use strict';
 
-var dualEmitter = require('./index');
+var DualEmitter = require('./index');
+var dualEmitter = new DualEmitter();
 
-describe('dual-emitter:', function() {
-  // body
+describe('dual-emitter', function() {
+  // body ...
 });

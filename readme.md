@@ -1,7 +1,7 @@
 ## [![npm][npmjs-img]][npmjs-url] [![mit license][license-img]][license-url] [![build status][travis-img]][travis-url] [![coverage status][coveralls-img]][coveralls-url]
 
 > Cross-browser (and IE8) + node.js event emitter. Invoke custom or DOM event.  
-Micro library in 35 lines without jQuery!!!
+Micro library in 35 lines without jQuery!!! Useful for two-way data-binding!!
 
 ## Install
 ```bash
@@ -11,7 +11,7 @@ npm test
 
 
 ## Usage in node.js
-> For more use-cases see the [tests](./test.js)
+> For more use-cases see the [tests](./test.js) and [examples](./examples)
 
 ```js
 var DualEmitter = require('dual-emitter');
@@ -27,7 +27,7 @@ dualEmitter
 
 
 ## Usage in browser
-> For more use-cases see the [tests](./test.js)
+> For more use-cases see the [tests](./test.js) and [examples](./examples)
 
 ```html
 <script src="https://cdn.rawgit.com/tunnckoCore/dual-emitter/master/index.js"></script>
