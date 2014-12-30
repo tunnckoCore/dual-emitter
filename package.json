@@ -20,7 +20,7 @@
   "keywords": [
     "browser",
     "chrome",
-    "chromium"
+    "chromium",
     "cross",
     "cross-browser",
     "custom",
@@ -28,8 +28,6 @@
     "dual",
     "emitter",
     "event",
-    "event emitter",
-    "event-emitter",
     "events",
     "explorer",
     "firefox",
@@ -41,10 +39,10 @@
     "micro",
     "microjs",
     "mini",
-    "mozilla"
+    "mozilla",
     "node",
     "nodejs",
-    "without"
+    "without",
     "without jquery"
   ],
   "license": {
