@@ -1,6 +1,6 @@
 {
   "name": "dual-emitter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Cross-browser (and IE8) + node.js event emitter. Invoke custom or DOM event. Micro library in 35 lines without jQuery!!!",
   "scripts": {
     "lint": "jshint index.js && jscs index.js --reporter inline",
