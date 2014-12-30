@@ -36,7 +36,7 @@ module.exports = function DualEmitter($) {
     return $;
   };
   $.off = function off(name) {
-    if(!$.hasEvent(name)) {delete $.events[name];}
+    if (!$.hasEvent(name)) {delete $.events[name];}
     return $;
   };
   $.emit = function emit(args) {
