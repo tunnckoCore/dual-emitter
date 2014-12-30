@@ -13,7 +13,6 @@ components
 vendor
 build
 dest
-dist
 src
 lib-cov
 coverage
