@@ -1,3 +1,7 @@
+## v0.0.4 / December 30, 2014
+- add `dist/`
+- remove dist from ignoring clauses
+
 ## v0.0.3 / December 30, 2014
 - add examples
 - add module pattern (works for browser and node.js)
