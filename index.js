@@ -10,10 +10,6 @@
 module.exports = function DualEmitter($) {
   $ = $ || this;
   $.events = $.events || {};
-  $.inherit = function inherit(obj) {
-    $ = obj || $;
-    return $;
-  }
   $.hasEvent = function hasEvent(name) {
     return (name in $.events) ? $.events[name] : 0;
   };
