@@ -1,66 +1,17 @@
 {
   "name": "dual-emitter",
-  "version": "0.0.4",
-  "description": "Cross-browser (and IE8) + node.js event emitter. Invoke custom or DOM event. Micro library in 35 lines without jQuery!!!  Useful for two-way data-binding!!",
+  "version": "0.0.0",
+  "description": "EventEmitter done right. Node.js and cross-browser (IE8). Can emit custom or DOM events.",
+  "repository": "tunnckoCore/dual-emitter",
+  "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
+  "main": "index.js",
+  "license": "MIT", 
   "scripts": {
-    "lint": "jshint dist/dual-emitter.js && jscs dist/dual-emitter.js --reporter inline",
-    "test": "mocha",
-    "test-cov": "istanbul cover _mocha",
-    "test-travis": "istanbul cover _mocha --report lcovonly"
-  },
-  "author": {
-    "name": "Charlike Make Reagent",
-    "email": "mameto_100@mail.bg",
-    "url": "https://github.com/tunnckoCore"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/tunnckoCore/dual-emitter.git"
-  },
-  "keywords": [
-    "browser",
-    "chrome",
-    "chromium",
-    "cross",
-    "cross-browser",
-    "custom",
-    "dom",
-    "dual",
-    "emitter",
-    "event",
-    "events",
-    "explorer",
-    "firefox",
-    "ie",
-    "ie8",
-    "internet",
-    "invoke",
-    "jquery",
-    "micro",
-    "microjs",
-    "mini",
-    "mozilla",
-    "node",
-    "nodejs",
-    "spa",
-    "databinding",
-    "binding",
-    "two-way databinding",
-    "two-way",
-    "two way",
-    "data binding",
-    "bi-directional",
-    "without",
-    "without jquery"
-  ],
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/tunnckoCore/dual-emitter/blob/master/license.md"
+    "test": "standard && node test.js"
   },
   "dependencies": {},
   "devDependencies": {
-    "istanbul-harmony": "^0.3.1",
-    "mocha": "*",
-    "mocha-lcov-reporter": "^0.0.1"
-  }
+    "assertit": "^0.1.0"
+  },
+  "keywords": []
 }

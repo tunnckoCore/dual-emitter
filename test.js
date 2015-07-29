@@ -1,15 +1,17 @@
-/**
+/*!
  * dual-emitter <https://github.com/tunnckoCore/dual-emitter>
  *
- * Copyright (c) 2014 Charlike Mike Reagent, contributors.
+ * Copyright (c) 2015 Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)
  * Released under the MIT license.
  */
 
-'use strict';
+/* jshint asi:true */
 
-var DualEmitter = require('./index');
-var dualEmitter = new DualEmitter();
+'use strict'
 
-describe('dual-emitter', function() {
-  // body ...
-});
+var test = require('assertit')
+var dualEmitter = require('./index')
+
+test('dual-emitter:', function () {
+  // body
+})

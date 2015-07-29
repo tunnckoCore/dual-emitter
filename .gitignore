@@ -1,6 +1,6 @@
 # .gitignore <https://github.com/tunnckoCore/dotfiles>
 #
-# Copyright (c) 2014 Charlike Mike Reagent, contributors.
+# Copyright (c) 2015 Charlike Mike Reagent, contributors.
 # Released under the MIT license.
 #
 
@@ -13,6 +13,7 @@ components
 vendor
 build
 dest
+dist
 src
 lib-cov
 coverage
@@ -20,6 +21,7 @@ nbproject
 cache
 temp
 tmp
+dual-emitter
 
 # Packages #
 # ##########
@@ -52,3 +54,4 @@ Desktop.ini
 npm-debug.log
 .directory
 ._*
+lcov.info
