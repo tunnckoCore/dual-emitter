@@ -1,20 +1,22 @@
 {
   "name": "dual-emitter",
   "version": "0.4.1",
-  "description": "EventEmitter done right and no dependencies. For nodejs and the browser (>= IE8). Can emit custom or DOM events.",
+  "description": ":tropical_drink: EventEmitter done right and no dependencies. For nodejs and the browser (>= IE8). Can emit custom or DOM events.",
   "repository": "tunnckoCore/dual-emitter",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
   "main": "index.js",
-  "license": "MIT", 
+  "license": "MIT",
   "scripts": {
-    "test": "standard && node test.js",
-    "build": "npm run browserify && npm run uglify",
-    "browserify": "browserify -s DualEmitter -do dist/dual-emitter.js index.js",
-    "uglify": "uglifyjs -m -c -o dist/dual-emitter.min.js dist/dual-emitter.js"
+    "build": "npm run bundle && npm run minify",
+    "bundle": "browserify -s DualEmitter -do dist/dual-emitter.js index.js",
+    "minify": "uglifyjs -m -c -o dist/dual-emitter.min.js dist/dual-emitter.js",
+    "test": "standard && node test.js"
   },
   "dependencies": {},
   "devDependencies": {
-    "assertit": "^0.1.0"
+    "assertit": "^0.1.0",
+    "browserify": "^11.0.1",
+    "uglify-js": "^2.4.24"
   },
   "keywords": []
 }
