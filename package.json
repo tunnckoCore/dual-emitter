@@ -7,7 +7,10 @@
   "main": "index.js",
   "license": "MIT", 
   "scripts": {
-    "test": "standard && node test.js"
+    "test": "standard && node test.js",
+    "build": "npm run browserify && npm run uglify",
+    "browserify": "browserify -s DualEmitter -do dist/dual-emitter.js index.js",
+    "uglify": "uglifyjs -m -c -o dist/dual-emitter.min.js dist/dual-emitter.js"
   },
   "dependencies": {},
   "devDependencies": {
