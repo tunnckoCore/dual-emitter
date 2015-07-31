@@ -1,6 +1,6 @@
 # [dual-emitter][author-www-url] [![npmjs.com][npmjs-img]][npmjs-url] [![The MIT License][license-img]][license-url] 
 
-> EventEmitter done right. Node.js and cross-browser (IE8). Can emit custom or DOM events.
+> EventEmitter done right and no dependencies. For nodejs and the browser (>= IE8). Can emit custom or DOM events.
 
 [![code climate][codeclimate-img]][codeclimate-url] [![standard code style][standard-img]][standard-url] [![travis build status][travis-img]][travis-url] [![coverage status][coveralls-img]][coveralls-url] [![dependency status][david-img]][david-url]
 
