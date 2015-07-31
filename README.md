@@ -16,7 +16,187 @@ npm test
 > For more use-cases see the [tests](./test.js)
 
 ```js
-var dualEmitter = require('dual-emitter')
+var DualEmitter = require('dual-emitter')
+var emitter = new DualEmitter()
+
+function handler () {
+  console.log('foo bar')
+}
+
+emitter
+  .once('custom', function () {
+    console.log('executed once')
+  })
+  .on('foo', handler)
+  .emit('custom', 'abc')
+  .emit('custom', 'foo', ['bar', 'baz'])
+  .emit('custom')
+  .off('foo', handler)
+  .on('click', function () {
+    console.log('link clicked')
+  }, document.body.querySelector('a[href]'))
+```
+
+## API
+### [DualEmitter](./index.js#L30)
+> Create a new instance of `DualEmitter`.
+
+- `[events]` **{Object}** Initialize with default events.    
+
+**Example**
+
+```js
+var DualEmitter = require('dual-emitter')
+var emitter = new DualEmitter()
+```
+
+### [.on](./index.js#L64)
+> Add/bind event listener to custom or DOM event. Notice that `this` in event handler function vary - it can be the DOM element or DualEmitter instance.
+
+- `<name>` **{String}** event name    
+- `<fn>` **{Function}** event handler    
+- `[el]` **{Object}** optional DOM element    
+- `returns` **{DualEmitter}** DualEmitter for chaining  
+
+**Example**
+
+```js
+function handler (a, b) {
+  console.log('hi', a, b) //=> hi 123 bar
+}
+
+function onclick (evt) {
+  console.log(evt, 'clicked')
+}
+
+var element = document.body.querySelector('a.link')
+
+emitter.on('custom', handler).emit('custom', 123, 'bar')
+emitter.on('click', onclick, element).off('click', onclick, element)
+```
+
+### [.off](./index.js#L103)
+> Remove/unbind event listener of custom or DOM event.
+
+- `<name>` **{String}** event name    
+- `<fn>` **{Function}** event handler    
+- `[el]` **{Object}** optional DOM element    
+- `returns` **{DualEmitter}** DualEmitter for chaining  
+
+**Example**
+
+```js
+var element = document.body.querySelector('a.link')
+emitter.off('custom', handler)
+emitter.off('click', onclick, element)
+```
+
+### [.once](./index.js#L147)
+> Add one-time event listener to custom or DOM event. Notice that `this` in event handler function vary - it can be the DOM element or DualEmitter instance.
+
+- `<name>` **{String}** event name    
+- `<fn>` **{Function}** event handler    
+- `[el]` **{Object}** optional DOM element    
+- `returns` **{DualEmitter}** DualEmitter for chaining  
+
+**Example**
+
+```js
+emitter
+  .once('custom', function () {
+    console.log('executed one time')
+  })
+  .emit('custom')
+  .emit('custom')
+
+var element = document.body.querySelector('a.link')
+emitter.once('click', function () {
+  console.log('listen for click event only once')
+}, element)
+```
+
+### [.emit](./index.js#L196)
+> Emit/execute some type of event listener. You also can emit DOM events if last argument is the DOM element that have attached event listener.
+
+- `<name>` **{String}** event name    
+- `[args...]` **{Mixed}** context to pass to event listeners    
+- `[el]` **{Object}** optional DOM element    
+- `returns` **{DualEmitter}** DualEmitter for chaining  
+
+**Example**
+
+```js
+var i = 0
+
+emitter
+  .on('custom', function () {
+    console.log('i ==', i++, arguments)
+  })
+  .emit('custom')
+  .emit('custom', 123)
+  .emit('custom', 'foo', 'bar', 'baz')
+  .emit('custom', [1, 2, 3], 4, 5)
+
+// or even emit DOM events, but you should
+// give the element as last argument to `.emit` method
+var element = document.body.querySelector('a.link')
+var clicks = 0
+
+emitter
+  .on('click', function (a) {
+    console.log(a, 'clicked', clicks++)
+  }, element)
+  .emit('click', 123, element)
+  .emit('click', element)
+  .emit('click', foo, element)
+```
+
+### [._isDom](./index.js#L231)
+> Check that given `val` is DOM element. Used internally.
+
+- `val` **{Mixed}**    
+- `returns` **{Boolean}**  
+
+**Example**
+
+```js
+var element = document.body.querySelector('a.link')
+
+emitter._isDom(element) //=> true
+emitter._isDom({a: 'b'}) //=> false
+```
+
+### [._hasOwn](./index.js#L255)
+> Check that `key` exists in the given `obj`.
+
+- `obj` **{Object}**    
+- `key` **{String}**    
+- `returns` **{Boolean}**  
+
+**Example**
+
+```js
+var obj = {a: 'b'}
+
+emitter._hasOwn(obj, 'a') //=> true
+emitter._hasOwn(obj, 'foo') //=> false
+```
+
+### [.mixin](./index.js#L278)
+> Static method for mixing `DualEmitter` prototype properties onto `receiver`.
+
+- `receiver` **{Object}**    
+- `provider` **{Object}**    
+- `returns` **{Object}**  
+
+**Example**
+
+```js
+function App() {
+  DualEmitter.call(this)
+}
+
+DualEmitter.mixin(App.prototype)
 ```
 
 
