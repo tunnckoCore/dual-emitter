@@ -1,6 +1,6 @@
 {
   "name": "dual-emitter",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "EventEmitter done right. Node.js and cross-browser (IE8). Can emit custom or DOM events.",
   "repository": "tunnckoCore/dual-emitter",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
