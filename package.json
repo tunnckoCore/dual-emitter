@@ -1,6 +1,6 @@
 {
   "name": "dual-emitter",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": ":tropical_drink: EventEmitter done right and no dependencies. For nodejs and the browser (>= IE8). Can emit custom or DOM events.",
   "repository": "tunnckoCore/dual-emitter",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
