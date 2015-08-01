@@ -5,6 +5,8 @@
  * Released under the MIT license.
  */
 
+/* jshint asi:true */
+
 'use strict'
 
 /**
@@ -78,9 +80,7 @@ DualEmitter.prototype.on = function on (name, fn, el) {
   if (el && this._isDom(el)) {
     fn.outerHTML = el.outerHTML
     this._element = el
-    el.addEventListener
-      ? el.addEventListener(name, fn, false)
-      : el.attachEvent('on' + name, fn)
+    el.addEventListener ? el.addEventListener(name, fn, false) : el.attachEvent('on' + name, fn)
   }
   return this
 }
@@ -110,13 +110,11 @@ DualEmitter.prototype.off = function off (name, fn, el) {
   if (typeof fn !== 'function') {
     throw new TypeError('DualEmitter#off expect `fn` be function')
   }
-  if (!this._hasOwn(this._events, name) && !this._events[name]) return this
+  if (!this._hasOwn(this._events, name)) {return this}
   this._events[name].splice(this._events[name].indexOf(fn), 1)
 
   if (el && this._isDom(el)) {
-    el.removeEventListener
-      ? el.removeEventListener(name, fn, false)
-      : el.detachEvent('on' + name, fn)
+    el.removeEventListener ? el.removeEventListener(name, fn, false) : el.detachEvent('on' + name, fn)
   }
   return this
 }
@@ -151,9 +149,9 @@ DualEmitter.prototype.off = function off (name, fn, el) {
 
 DualEmitter.prototype.once = function once (name, fn, el) {
   var self = this
-  function handler (evt) {
+  function handler () {
     self.off(name, handler, el)
-    return fn(evt)
+    return fn.apply(el, arguments)
   }
   return this.on(name, handler, el)
 }
@@ -200,7 +198,7 @@ DualEmitter.prototype.once = function once (name, fn, el) {
  */
 
 DualEmitter.prototype.emit = function emit (name) {
-  if (!this._hasOwn(this._events, name) && !this._events[name]) return this
+  if (!this._hasOwn(this._events, name)) {return this}
   var args = Array.prototype.slice.call(arguments, 1)
   var el = args[args.length - 1]
   var isdom = this._isDom(el)
