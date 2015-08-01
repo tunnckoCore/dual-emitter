@@ -14,7 +14,7 @@ npm test
 
 ## Features
 - minimal, yet simple to use
-- just 3kb minified - no jQuery, no dependencies
+- just 4kb minified - no jQuery, no dependencies
 - works on the browser (**even IE8**), [use dist/dual-emitter.min.js](./dist/dual-emitter.min.js)
 - works on the server, just install it and `require` it
 - can emit (trigger or whatever you call it) DOM events manually

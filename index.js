@@ -239,7 +239,6 @@ DualEmitter.prototype._isDom = function isDom (val) {
   return /(?:HTML)?(?:.*)Element/.test(val)
 }
 
-
 /**
  * > Check that `key` exists in the given `obj`.
  *

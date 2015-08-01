@@ -53,5 +53,10 @@
     "onetime",
     "trigger",
     "unbind"
-  ]
+  ],
+  "standard": {
+    "ignore": [
+      "dist/**"
+    ]
+  }
 }
