@@ -10,8 +10,13 @@
 'use strict'
 
 var test = require('assertit')
-var dualEmitter = require('./index')
+var DualEmitter = require('./index')
 
 test('dual-emitter:', function () {
-  // body
+  test('constructor should accept only object', function (done) {
+    var emitter = new DualEmitter(12345)
+
+    test.deepEqual(emitter._events, {})
+    done()
+  })
 })
