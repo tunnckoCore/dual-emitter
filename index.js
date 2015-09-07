@@ -207,7 +207,7 @@ DualEmitter.prototype.emit = function emit (name) {
   el = isdom ? el : this
   args = isdom ? args.slice(0, -1) : args
 
-  for (var i = 0 i < this._events[name].length i++) {
+  for (var i = 0; i < this._events[name].length; i++) {
     var fn = this._events[name][i]
     if (isdom && fn.outerHTML !== el.outerHTML) {
       continue
