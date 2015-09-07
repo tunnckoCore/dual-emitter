@@ -9,6 +9,8 @@
 
 'use strict'
 
+var util = require('util')
+
 /**
  * Expose `DualEmitter`
  */
@@ -205,7 +207,7 @@ DualEmitter.prototype.emit = function emit (name) {
   el = isdom ? el : this
   args = isdom ? args.slice(0, -1) : args
 
-  for (var i = 0; i < this._events[name].length; i++) {
+  for (var i = 0 i < this._events[name].length i++) {
     var fn = this._events[name][i]
     if (isdom && fn.outerHTML !== el.outerHTML) {
       continue
@@ -260,33 +262,39 @@ DualEmitter.prototype._hasOwn = function hasOwn (obj, key) {
 }
 
 /**
- * > Static method for mixing `DualEmitter` prototype properties onto `receiver`.
- *
- * **Example**
+ * Static method for inheriting both the prototype and
+ * static methods of the `DualEmitter` class.
  *
  * ```js
- * function App() {
- *   DualEmitter.call(this)
+ * function MyApp(options) {
+ *   DualEmitter.call(this, options);
  * }
+ * DualEmitter.extend(MyApp);
  *
- * DualEmitter.mixin(App.prototype)
+ *
+ * // Optionally pass another object to extend onto `MyApp`
+ * function MyApp(options) {
+ *   DualEmitter.call(this, options);
+ *   Foo.call(this, options);
+ * }
+ * DualEmitter.extend(MyApp, Foo.prototype);
  * ```
  *
- * @param  {Object} `receiver`
- * @param  {Object} `provider`
- * @return {Object}
+ * @param {Function} `Ctor` The constructor to extend.
  * @api public
  */
 
-DualEmitter.mixin = function mixin (receiver, provider) {
-  provider = provider || this
-  for (var key in provider) {
-    receiver.constructor[key] = provider[key]
+DualEmitter.extend = function (Ctor, proto) {
+  util.inherits(Ctor, DualEmitter)
+  for (var key in DualEmitter) {
+    Ctor[key] = DualEmitter[key]
   }
-  receiver.constructor.prototype = Object.create(provider.prototype)
-  for (var prop in receiver) {
-    receiver.constructor.prototype[prop] = receiver[prop]
+
+  if (typeof proto === 'object') {
+    var obj = Object.create(proto)
+
+    for (var k in obj) {
+      Ctor.prototype[k] = obj[k]
+    }
   }
-  receiver.constructor.__super__ = provider.prototype
-  return receiver.constructor
 }
