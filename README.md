@@ -191,21 +191,25 @@ emitter._hasOwn(obj, 'a') //=> true
 emitter._hasOwn(obj, 'foo') //=> false
 ```
 
-### [.mixin](./index.js#L278)
-> Static method for mixing `DualEmitter` prototype properties onto `receiver`.
+### [.extend](index.js#L287)
+> Static method for inheriting both the prototype and static methods of the `DualEmitter` class.
 
-- `receiver` **{Object}**    
-- `provider` **{Object}**    
-- `returns` **{Object}**  
+- `Ctor` **{Function}** The constructor to extend.
 
 **Example**
 
 ```js
-function App() {
+function MyApp(options) {
   DualEmitter.call(this)
 }
+DualEmitter.extend(MyApp)
 
-DualEmitter.mixin(App.prototype)
+// Optionally pass another object to extend onto `MyApp`
+function MyApp(options) {
+  DualEmitter.call(this)
+  Foo.call(this, options)
+}
+DualEmitter.extend(MyApp, Foo.prototype)
 ```
 
 

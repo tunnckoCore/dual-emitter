@@ -267,17 +267,17 @@ DualEmitter.prototype._hasOwn = function hasOwn (obj, key) {
  *
  * ```js
  * function MyApp(options) {
- *   DualEmitter.call(this, options);
+ *   DualEmitter.call(this)
  * }
- * DualEmitter.extend(MyApp);
+ * DualEmitter.extend(MyApp)
  *
  *
  * // Optionally pass another object to extend onto `MyApp`
  * function MyApp(options) {
- *   DualEmitter.call(this, options);
- *   Foo.call(this, options);
+ *   DualEmitter.call(this)
+ *   Foo.call(this, options)
  * }
- * DualEmitter.extend(MyApp, Foo.prototype);
+ * DualEmitter.extend(MyApp, Foo.prototype)
  * ```
  *
  * @param {Function} `Ctor` The constructor to extend.
